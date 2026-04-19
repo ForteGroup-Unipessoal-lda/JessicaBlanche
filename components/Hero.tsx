@@ -4,14 +4,14 @@ import { useEffect, useRef } from 'react'
 
 const orbitImages = [
   '/images/photo-01.jpg',
+  '/images/Photo_mirror_night.png',
+  '/images/jessica_beach.png',
+  '/images/Bikini_photo.jpg',
   '/images/photo-02.jpg',
-  '/images/photo-01.jpg',
-  '/images/photo-02.jpg',
-  '/images/photo-01.jpg',
-  '/images/photo-01.jpg',
-  '/images/photo-01.jpg',
-  '/images/photo-01.jpg',
-  '/images/photo-02.jpg',
+  '/images/Gym_session.png',
+  '/images/jessica_night_out.png',
+  '/images/IMG_8134.PNG',
+  '/images/photo-03.jpg',
 ]
 
 export default function Hero() {
@@ -76,7 +76,7 @@ export default function Hero() {
       </div>
       <div className="hero-portrait">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/photo-01.jpg" alt="Jessica" />
+        <img src="/images/Photo_mirror_night.png" alt="Jessica" />
       </div>
       <div className="hero-content">
         <p className="eyebrow">Inner Circle · First 1,000 Only</p>

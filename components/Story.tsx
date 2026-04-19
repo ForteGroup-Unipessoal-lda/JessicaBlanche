@@ -4,11 +4,11 @@ export default function Story() {
       <div className="story-imgs reveal">
         <div className="story-img-main">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/photo-01.jpg" alt="Jessica" />
+          <img src="/images/jessica_beach.png" alt="Jessica" />
         </div>
         <div className="story-img-sub">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/photo-02.jpg" alt="Jessica" />
+          <img src="/images/Photo_mirror_night.png" alt="Jessica" />
         </div>
         <div className="story-badge">27 · Model · Creator</div>
       </div>

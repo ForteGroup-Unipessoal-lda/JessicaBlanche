@@ -49,13 +49,13 @@ export default function Gifts() {
       </div>
       <div className="photo-band">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <div className="pb-img pbi1 reveal"><img src="/images/photo-01.jpg" alt="Jessica" /></div>
+        <div className="pb-img pbi1 reveal"><img src="/images/Gym_session.png" alt="Jessica" /></div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <div className="pb-img pbi2 reveal" style={{ transitionDelay: '.12s' }}><img src="/images/photo-02.jpg" alt="Jessica" /></div>
+        <div className="pb-img pbi2 reveal" style={{ transitionDelay: '.12s' }}><img src="/images/jessica_beach.png" alt="Jessica" /></div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <div className="pb-img pbi3 reveal" style={{ transitionDelay: '.24s' }}><img src="/images/photo-02.jpg" alt="Jessica" /></div>
+        <div className="pb-img pbi3 reveal" style={{ transitionDelay: '.24s' }}><img src="/images/jessica_night_out.png" alt="Jessica" /></div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <div className="pb-img pbi4 reveal" style={{ transitionDelay: '.36s' }}><img src="/images/photo-01.jpg" alt="Jessica" /></div>
+        <div className="pb-img pbi4 reveal" style={{ transitionDelay: '.36s' }}><img src="/images/IMG_8134.PNG" alt="Jessica" /></div>
       </div>
     </>
   )

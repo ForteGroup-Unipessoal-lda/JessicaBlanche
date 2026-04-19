@@ -18,7 +18,7 @@ export default function Preview() {
         <div className="preview-grid stagger">
           <div className="preview-card">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/photo-03.jpg" alt="Members Only" />
+            <img src="/images/Bikini_photo.jpg" alt="Members Only" />
             <div className="preview-lock">
               <div className="preview-lock-icon">🔒</div>
               <div className="preview-lock-txt">Members Only</div>
@@ -27,7 +27,7 @@ export default function Preview() {
           </div>
           <div className="preview-card" style={{ marginTop: '36px' }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/photo-03.jpg" alt="Members Only" style={{ objectPosition: 'center center' }} />
+            <img src="/images/AAGHb9FZgnQ_1776617271702.png" alt="Members Only" style={{ objectPosition: 'center center' }} />
             <div className="preview-lock">
               <div className="preview-lock-icon">✦</div>
               <div className="preview-lock-txt">Inner Circle Only</div>
