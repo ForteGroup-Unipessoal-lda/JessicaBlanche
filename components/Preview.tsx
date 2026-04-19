@@ -18,7 +18,7 @@ export default function Preview() {
         <div className="preview-grid stagger">
           <div className="preview-card">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/Bikini_photo.jpg" alt="Members Only" />
+            <img src="/images/photo-03.jpg" alt="Members Only" />
             <div className="preview-lock">
               <div className="preview-lock-icon">🔒</div>
               <div className="preview-lock-txt">Members Only</div>
