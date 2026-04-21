@@ -62,6 +62,7 @@ export async function POST(req: NextRequest) {
     const stripe = getStripe()
     const existing = await stripe.customers.list({ email, limit: 1 })
     const customer = existing.data[0] ?? await stripe.customers.create({ email, name })
+    const price = await stripe.prices.retrieve(priceId)
 
     // Update subscriber with stripe_customer_id
     const { error: updateError } = await supabase
@@ -72,7 +73,7 @@ export async function POST(req: NextRequest) {
 
     const session = await stripe.checkout.sessions.create({
       customer: customer.id,
-      mode: 'subscription',
+      mode: price.recurring ? 'subscription' : 'payment',
       line_items: [{ price: priceId, quantity: 1 }],
       success_url: `${siteUrl}/success?session_id={CHECKOUT_SESSION_ID}&name=${encodeURIComponent(name)}`,
       cancel_url: `${siteUrl}/#join`,
