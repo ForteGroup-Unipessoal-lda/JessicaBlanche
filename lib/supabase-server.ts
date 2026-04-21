@@ -1,8 +1,15 @@
 import { createClient } from '@supabase/supabase-js'
 
+function getSupabaseUrl() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  if (!url) throw new Error('NEXT_PUBLIC_SUPABASE_URL is not configured.')
+
+  return url.replace(/\/rest\/v1\/?$/, '').replace(/\/$/, '')
+}
+
 export function createAdminClient() {
   return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    getSupabaseUrl(),
     process.env.SUPABASE_SERVICE_ROLE_KEY!,
     { auth: { persistSession: false } }
   )
