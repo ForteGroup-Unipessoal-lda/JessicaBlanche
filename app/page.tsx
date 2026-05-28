@@ -5,6 +5,7 @@ import Hero from '@/components/Hero'
 import Story from '@/components/Story'
 import Gallery from '@/components/Gallery'
 import Preview from '@/components/Preview'
+import DirectAccess from '@/components/DirectAccess'
 import Offer from '@/components/Offer'
 import Gifts from '@/components/Gifts'
 import Countdown from '@/components/Countdown'
@@ -26,6 +27,7 @@ export default async function Home() {
       <Story />
       <Gallery />
       <Preview />
+      <DirectAccess />
       <Offer activeCount={activeCount} />
       <Gifts />
       <Countdown />
