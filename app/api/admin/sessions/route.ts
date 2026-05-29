@@ -11,6 +11,8 @@ export async function GET() {
     .order('scheduled_at', { ascending: true })
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
   return NextResponse.json({ sessions: data })
+
+  
 }
 
 export async function POST(req: NextRequest) {
