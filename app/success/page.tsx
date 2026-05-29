@@ -82,7 +82,7 @@ export default function SuccessPage({
           }}
         >
           Check your inbox — Jessica has something for you already.
-          Your rate is locked forever at 9.99€.
+          Your rate is locked forever at $9.99.
         </p>
 
         <div

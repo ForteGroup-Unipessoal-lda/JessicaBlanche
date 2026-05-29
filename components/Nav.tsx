@@ -16,7 +16,7 @@ export default function Nav() {
         <li><a href="#join">Join Now</a></li>
       </ul>
       <button className="nav-cta" onClick={() => scrollTo('join')}>
-        Join · 9.99€
+        Join · $9.99
       </button>
     </nav>
   )

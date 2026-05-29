@@ -1,14 +1,14 @@
 const gifts = [
   { num: '01', icon: '🎁', title: 'Personal Welcome', desc: 'The first 1,000 members receive a personal message from Jessica — written by her, for you, on day one.' },
   { num: '02', icon: '📸', title: 'Exclusive Photo Set', desc: 'A private collection made only for founding members. Never sold. Never re-released. Yours to keep forever.' },
-  { num: '03', icon: '🔒', title: 'Rate Locked for Life', desc: "Whatever the subscription costs in a year — you'll always pay 9.99€. No exceptions, no surprises." },
+  { num: '03', icon: '🔒', title: 'Rate Locked for Life', desc: "Whatever the subscription costs in a year — you'll always pay $9.99. No exceptions, no surprises." },
   { num: '04', icon: '⚡', title: 'Priority DM Access', desc: "Your messages go to the top of her inbox. Founding members get real responses — not automation." },
   { num: '05', icon: '🎥', title: 'Founding-Only Live', desc: 'One intimate live session reserved exclusively for the first thousand — before the platform opens.' },
   { num: '06', icon: '✦', title: 'Founding Badge', desc: 'A permanent mark. Others will know you were here first — and exactly what that means.' },
 ]
 
 const conditions = [
-  { icon: '🔒', title: 'Rate Locked Forever', txt: "Your 9.99€ never changes. Not in a year, not in five." },
+  { icon: '🔒', title: 'Rate Locked Forever', txt: "Your $9.99 never changes. Not in a year, not in five." },
   { icon: '⚡', title: 'Cancel Anytime', txt: 'One click. No questions. You stay because you want to.' },
   { icon: '🛡️', title: '100% Private', txt: 'Your data stays yours. Never sold, never shared.' },
   { icon: '🎁', title: 'Exclusive Gifts', txt: 'Offers and surprises only founding members ever receive.' },

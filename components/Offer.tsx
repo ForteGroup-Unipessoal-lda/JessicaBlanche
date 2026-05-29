@@ -24,7 +24,7 @@ export default function Offer({ activeCount }: { activeCount: number }) {
         <div className="offer-card reveal">
           <span className="offer-badge-top">✦ Founding Member — First 1,000 Only</span>
           <div>
-            <div className="offer-price"><sup>€</sup>9<span style={{ fontSize: '52px' }}>.99</span></div>
+            <div className="offer-price"><sup>$</sup>9<span style={{ fontSize: '52px' }}>.99</span></div>
             <div className="offer-price-note">per month · locked forever · cancel anytime</div>
           </div>
           <div className="offer-divider" />
