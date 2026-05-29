@@ -89,7 +89,7 @@ export default function Hero() {
         </p>
         <div className="hero-btns">
           <button className="btn-p" onClick={scrollToJoin}>
-            Get First Access — 9.99€
+            Get First Access — 9.99$
           </button>
           <button className="btn-g" onClick={scrollToStory}>
             Her Story

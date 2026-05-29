@@ -35,7 +35,7 @@ export default function SignupForm() {
       <span className="section-label reveal">Claim Your Spot</span>
       <h2 className="signup-h reveal">Join her<br /><em>inner circle</em></h2>
       <p className="signup-sub reveal">
-        Enter your details. Lock in 9.99€ forever. Become one of the first thousand — and receive gifts that will never be offered again.
+        Enter your details. Lock in 9.99$ forever. Become one of the first thousand — and receive gifts that will never be offered again.
       </p>
       <div className="reveal">
         <div className="form-group">
@@ -60,7 +60,7 @@ export default function SignupForm() {
           />
         </div>
         <button className="form-submit" onClick={handleSubmit} disabled={loading}>
-          {loading ? 'Securing your spot…' : 'Claim My Founding Spot — 9.99€ →'}
+          {loading ? 'Securing your spot…' : 'Claim My Founding Spot — 9.99$ →'}
         </button>
         {error && <p className="form-error">{error}</p>}
         <p className="form-note">No spam. Your email is never shared. Cancel in one tap, anytime.</p>
