@@ -76,7 +76,7 @@ export default function Hero() {
       </div>
       <div className="hero-portrait">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/Photo_mirror_night.png" alt="Jessica" />
+        <img src="/images/jessie%233.webp" alt="Jessica" />
       </div>
       <div className="hero-content">
         <p className="eyebrow">Inner Circle · First 1,000 Only</p>
