@@ -1,7 +1,7 @@
 import { createAdminClient } from '@/lib/supabase-server'
 import { getSessionEmail } from '@/lib/auth'
-import { getStripe } from '@/lib/stripe'
 import LogoutButton from '@/components/dashboard/LogoutButton'
+import ManageSubscriptionButton from '@/components/dashboard/ManageSubscriptionButton'
 
 export default async function AccountPage() {
   const email = await getSessionEmail()
@@ -12,21 +12,6 @@ export default async function AccountPage() {
     .select('name, email, status, is_founding_member, stripe_customer_id, created_at')
     .eq('email', email!)
     .single()
-
-  let portalUrl: string | null = null
-  if (sub?.stripe_customer_id) {
-    try {
-      const stripe = getStripe()
-      const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://localhost:3000').replace(/\/$/, '')
-      const session = await stripe.billingPortal.sessions.create({
-        customer: sub.stripe_customer_id,
-        return_url: `${siteUrl}/dashboard/account`,
-      })
-      portalUrl = session.url
-    } catch {
-      // Stripe portal not configured — skip
-    }
-  }
 
   return (
     <div className="dash-account">
@@ -66,11 +51,7 @@ export default async function AccountPage() {
       </div>
 
       <div className="dash-account-actions">
-        {portalUrl && (
-          <a href={portalUrl} className="dash-portal-link">
-            Manage subscription (cancel, billing) →
-          </a>
-        )}
+        {sub?.stripe_customer_id && <ManageSubscriptionButton />}
         <LogoutButton />
       </div>
     </div>

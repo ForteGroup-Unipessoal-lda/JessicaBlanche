@@ -15,7 +15,7 @@ export async function sendMagicLink(email: string, magicUrl: string): Promise<vo
   const from = process.env.RESEND_FROM_EMAIL ?? 'noreply@jessicablanche.com'
   const resend = getResend()
 
-  await resend.emails.send({
+  const { error } = await resend.emails.send({
     from,
     to: email,
     subject: 'Your login link — Jessica Blanche',
@@ -40,4 +40,5 @@ export async function sendMagicLink(email: string, magicUrl: string): Promise<vo
 </body>
 </html>`,
   })
+  if (error) throw new Error(`Resend error: ${error.message}`)
 }

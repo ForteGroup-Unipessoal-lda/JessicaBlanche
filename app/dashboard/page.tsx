@@ -1,37 +1,36 @@
 import { createAdminClient } from '@/lib/supabase-server'
 import { getSessionEmail } from '@/lib/auth'
 
-async function getSignedUrl(supabase: ReturnType<typeof createAdminClient>, path: string): Promise<string> {
-  const { data } = await supabase.storage
-    .from('member-content')
-    .createSignedUrl(path, 3600)
-  return data?.signedUrl ?? path
-}
-
 export default async function DashboardFeed() {
   const email = await getSessionEmail()
   const supabase = createAdminClient()
 
-  const { data: subscriber } = await supabase
-    .from('subscribers')
-    .select('is_founding_member, name')
-    .eq('email', email!)
-    .single()
+  // Fetch subscriber info and posts in parallel
+  const [{ data: subscriber }, { data: posts }] = await Promise.all([
+    supabase.from('subscribers').select('is_founding_member, name').eq('email', email!).single(),
+    supabase.from('content_posts').select('*').order('published_at', { ascending: false }).limit(50),
+  ])
 
-  const { data: posts } = await supabase
-    .from('content_posts')
-    .select('*')
-    .order('published_at', { ascending: false })
-    .limit(50)
-
-  const postsWithUrls = await Promise.all(
-    (posts ?? []).map(async p => ({
-      ...p,
-      resolved_urls: await Promise.all(
-        (p.media_urls as string[]).map(u => u.startsWith('http') ? u : getSignedUrl(supabase, u))
-      ),
-    }))
+  // Collect all storage paths across all posts, sign them in one batch request
+  const allPaths = (posts ?? []).flatMap(p =>
+    (p.media_urls as string[]).filter(u => !u.startsWith('http'))
   )
+  const signedMap = new Map<string, string>()
+  if (allPaths.length > 0) {
+    const { data: signed } = await supabase.storage
+      .from('member-content')
+      .createSignedUrls(allPaths, 3600)
+    for (const item of signed ?? []) {
+      if (item.signedUrl && item.path) signedMap.set(item.path, item.signedUrl)
+    }
+  }
+
+  const postsWithUrls = (posts ?? []).map(p => ({
+    ...p,
+    resolved_urls: (p.media_urls as string[]).map(u =>
+      u.startsWith('http') ? u : (signedMap.get(u) ?? u)
+    ),
+  }))
 
   return (
     <div className="dash-feed">

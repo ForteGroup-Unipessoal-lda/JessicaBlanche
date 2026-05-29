@@ -3,18 +3,11 @@ import { createAdminClient } from '@/lib/supabase-server'
 export default async function LiveSessionsPage() {
   const supabase = createAdminClient()
   const now = new Date().toISOString()
-  const { data: upcoming } = await supabase
-    .from('live_sessions')
-    .select('*')
-    .gte('scheduled_at', now)
-    .order('scheduled_at', { ascending: true })
 
-  const { data: past } = await supabase
-    .from('live_sessions')
-    .select('*')
-    .lt('scheduled_at', now)
-    .order('scheduled_at', { ascending: false })
-    .limit(5)
+  const [{ data: upcoming }, { data: past }] = await Promise.all([
+    supabase.from('live_sessions').select('*').gte('scheduled_at', now).order('scheduled_at', { ascending: true }),
+    supabase.from('live_sessions').select('*').lt('scheduled_at', now).order('scheduled_at', { ascending: false }).limit(5),
+  ])
 
   return (
     <div className="dash-live">
