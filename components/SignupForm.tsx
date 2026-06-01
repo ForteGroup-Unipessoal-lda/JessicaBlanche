@@ -34,7 +34,7 @@ export default function SignupForm({ activeCount = 0 }: { activeCount?: number }
     return () => clearInterval(id)
   }, [])
 
-  const remaining = Math.max(0, TOTAL_SPOTS - activeCount)
+  const remaining = Math.max(0, TOTAL_SPOTS - activeCount + 990)
 
   const handleSubmit = async () => {
     if (!name.trim() || !email.trim()) {
@@ -70,7 +70,7 @@ export default function SignupForm({ activeCount = 0 }: { activeCount?: number }
           <input
             type="text"
             className="form-input"
-            placeholder="Your first name"
+            placeholder="What should I call you?"
             value={name}
             onChange={e => setName(e.target.value)}
             disabled={loading}
@@ -80,7 +80,7 @@ export default function SignupForm({ activeCount = 0 }: { activeCount?: number }
           <input
             type="email"
             className="form-input"
-            placeholder="Your email address"
+            placeholder="I need an email also..."
             value={email}
             onChange={e => setEmail(e.target.value)}
             disabled={loading}
