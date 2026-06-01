@@ -1,21 +1,37 @@
-const ALL = [
-  '/images/photo-01.jpg',
-  '/images/Photo_mirror_night.png',
-  '/images/jessica_beach.png',
-  '/images/Bikini_photo.jpg',
-  '/images/photo-02.jpg',
-  '/images/Gym_session.png',
-  '/images/jessica_night_out.png',
-  '/images/IMG_8134.PNG',
-  '/images/photo-03.jpg',
-  '/images/IMG_8188.PNG',
-  '/images/2F08D760-503E-4BFF-AAD3-86F47FB2EB0F.PNG',
-]
+import fs from 'fs'
+import path from 'path'
 
-const track1 = Array.from({ length: 18 }, (_, i) => ALL[i % ALL.length])
-const track2 = Array.from({ length: 18 }, (_, i) => ALL[(i + 4) % ALL.length])
+// Blurred preview images used in hero/unlock — keep out of the public gallery
+const PRIVATE = new Set(['jessie#1.webp', 'jessie#2.webp', 'jessie#3.webp', 'jessie#4.webp'])
+const IMAGE_EXTS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif'])
+
+function getGalleryImages(): string[] {
+  const dir = path.join(process.cwd(), 'public', 'images')
+  try {
+    return fs.readdirSync(dir)
+      .filter(f =>
+        IMAGE_EXTS.has(path.extname(f).toLowerCase()) &&
+        !PRIVATE.has(f) &&
+        !f.startsWith('nsfw')
+      )
+      .sort()
+      .map(f => `/images/${encodeURIComponent(f)}`)
+  } catch {
+    return []
+  }
+}
+
+const MIN_TRACK = 20
 
 export default function Gallery() {
+  const images = getGalleryImages()
+  if (images.length === 0) return null
+
+  const len = Math.max(MIN_TRACK, images.length * 2)
+  const half = Math.ceil(images.length / 2)
+  const track1 = Array.from({ length: len }, (_, i) => images[i % images.length])
+  const track2 = Array.from({ length: len }, (_, i) => images[(i + half) % images.length])
+
   return (
     <div className="flow-section">
       <div className="flow-track">

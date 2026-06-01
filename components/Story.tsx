@@ -4,7 +4,7 @@ export default function Story() {
       <div className="story-imgs reveal">
         <div className="story-img-main">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/jessica_beach.png" alt="Jessica" />
+          <img src="/images/photo-02.jpg" alt="Jessica" />
         </div>
         <div className="story-img-sub">
           {/* eslint-disable-next-line @next/next/no-img-element */}

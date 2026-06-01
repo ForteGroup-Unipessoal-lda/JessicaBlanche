@@ -46,7 +46,7 @@ export default function Preview() {
         </div>
         <div className="preview-cta-wrap reveal">
           <button className="btn-p" onClick={scrollToJoin}>
-            Unlock Everything — $9.99 →
+            Chat with me →
           </button>
           <p className="preview-cta-note">Join the first 1,000. Lock this rate forever. Cancel anytime.</p>
         </div>

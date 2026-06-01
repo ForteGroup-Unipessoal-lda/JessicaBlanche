@@ -1,12 +1,40 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-export default function SignupForm() {
+const TOTAL_SPOTS = 1000
+
+function pad(n: number) {
+  return String(Math.floor(n)).padStart(2, '0')
+}
+
+export default function SignupForm({ activeCount = 0 }: { activeCount?: number }) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [time, setTime] = useState('')
+
+  useEffect(() => {
+    const target = process.env.NEXT_PUBLIC_COUNTDOWN_TARGET
+    const launch = target
+      ? new Date(target)
+      : (() => { const d = new Date(); d.setDate(d.getDate() + 14); return d })()
+
+    const tick = () => {
+      const diff = launch.getTime() - Date.now()
+      if (diff <= 0) { setTime(''); return }
+      const h = pad((diff % 86400000) / 3600000)
+      const m = pad((diff % 3600000) / 60000)
+      const s = pad((diff % 60000) / 1000)
+      setTime(`${h}:${m}:${s}`)
+    }
+    tick()
+    const id = setInterval(tick, 1000)
+    return () => clearInterval(id)
+  }, [])
+
+  const remaining = Math.max(0, TOTAL_SPOTS - activeCount)
 
   const handleSubmit = async () => {
     if (!name.trim() || !email.trim()) {
@@ -35,7 +63,7 @@ export default function SignupForm() {
       <span className="section-label reveal">Claim Your Spot</span>
       <h2 className="signup-h reveal">Join her<br /><em>inner circle</em></h2>
       <p className="signup-sub reveal">
-        Enter your details. Lock in $9.99 forever. Become one of the first thousand — and receive gifts that will never be offered again.
+        Enter your details. Lock in $9.99 forever. Become one of the first thousand.
       </p>
       <div className="reveal">
         <div className="form-group">
@@ -59,8 +87,14 @@ export default function SignupForm() {
             onKeyDown={e => e.key === 'Enter' && handleSubmit()}
           />
         </div>
+        {time && (
+          <div className="form-urgency">
+            <span className="form-urgency-dot" />
+            <span>Founding rate closes in {time} — {remaining.toLocaleString()} spots left</span>
+          </div>
+        )}
         <button className="form-submit" onClick={handleSubmit} disabled={loading}>
-          {loading ? 'Securing your spot…' : 'Claim My Founding Spot — $9.99 →'}
+          {loading ? 'Securing your spot…' : 'Chat with me — $9.99 →'}
         </button>
         {error && <p className="form-error">{error}</p>}
         <p className="form-note">No spam. Your email is never shared. Cancel in one tap, anytime.</p>

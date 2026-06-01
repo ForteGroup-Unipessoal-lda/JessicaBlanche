@@ -51,9 +51,9 @@ export default function Gifts() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <div className="pb-img pbi1 reveal"><img src="/images/Gym_session.png" alt="Jessica" /></div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <div className="pb-img pbi2 reveal" style={{ transitionDelay: '.12s' }}><img src="/images/jessica_beach.png" alt="Jessica" /></div>
+        <div className="pb-img pbi2 reveal" style={{ transitionDelay: '.12s' }}><img src="/images/Bikini_photo.jpg" alt="Jessica" /></div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <div className="pb-img pbi3 reveal" style={{ transitionDelay: '.24s' }}><img src="/images/jessica_night_out.png" alt="Jessica" /></div>
+        <div className="pb-img pbi3 reveal" style={{ transitionDelay: '.24s' }}><img src="/images/IMG_8188.PNG" alt="Jessica" /></div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <div className="pb-img pbi4 reveal" style={{ transitionDelay: '.36s' }}><img src="/images/IMG_8134.PNG" alt="Jessica" /></div>
       </div>

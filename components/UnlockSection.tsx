@@ -1,30 +1,47 @@
 'use client'
 
-export default function DirectAccess() {
+const cards = [
+  { src: '/images/jessie%231.webp', label: 'Exclusive Content' },
+  { src: '/images/jessie%232.webp', label: 'Behind the Scenes' },
+  { src: '/images/jessie%233.webp', label: 'Private Access' },
+  { src: '/images/jessie%234.webp', label: 'Inner Circle' },
+]
+
+export default function UnlockSection() {
   const scrollToJoin = () => {
     document.getElementById('join')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <section className="dm-section">
-      <div className="dm-inner">
+    <section className="unlock-section">
+      <div className="unlock-inner">
 
-        <div className="dm-text reveal">
-          <span className="section-label">Private Access</span>
-          <h2 className="dm-h">
-            She <em>actually</em><br />writes back.
-          </h2>
-          <p className="dm-sub">
-            Every founding member gets direct access. Real messages. Real responses. Not a team — her.
-          </p>
-          <button className="btn-p" onClick={scrollToJoin}>
-            Chat with me →
-          </button>
+        <div className="unlock-preview">
+          <div className="unlock-preview-grid stagger">
+            {cards.map((c, i) => (
+              <div key={i} className="preview-card">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={c.src} alt="Members Only" />
+                <div className="preview-lock">
+                  <div className="preview-lock-icon">🔒</div>
+                  <div className="preview-lock-txt">Members Only</div>
+                </div>
+                <span className="preview-card-label">{c.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="dm-mockup reveal">
-          <div className="dm-glow" />
-          <div className="dm-window">
+        <div className="unlock-text reveal">
+          <span className="section-label">Private Access</span>
+          <h2 className="unlock-h">
+            She <em>actually</em><br />writes back.
+          </h2>
+          <p className="unlock-sub">
+            Unfiltered content. Real messages. Her actual world — for the first 1,000.
+          </p>
+
+          <div className="dm-window unlock-dm">
             <div className="dm-window-header">
               <div className="dm-avatar" />
               <div className="dm-header-info">
@@ -35,7 +52,6 @@ export default function DirectAccess() {
               </div>
               <span className="dm-lock-badge">🔒 Members Only</span>
             </div>
-
             <div className="dm-messages">
               <div className="dm-msg dm-msg-her">
                 <div className="dm-bubble dm-bubble-her">
@@ -55,12 +71,16 @@ export default function DirectAccess() {
                 <span className="dm-time">Members only</span>
               </div>
             </div>
-
-            <div className="dm-window-footer" onClick={scrollToJoin}>
+            <div className="dm-window-footer" onClick={scrollToJoin} style={{ cursor: 'pointer' }}>
               <span className="dm-footer-txt">Join to unlock the full conversation</span>
               <span className="dm-footer-arrow">→</span>
             </div>
           </div>
+
+          <button className="btn-p unlock-cta" onClick={scrollToJoin}>
+            Chat with me →
+          </button>
+          <p className="unlock-note">Join the first 1,000. Lock this rate forever.</p>
         </div>
 
       </div>

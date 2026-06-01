@@ -37,9 +37,26 @@ export default function Offer({ activeCount }: { activeCount: number }) {
             <li><strong>Founding gift</strong> — a personal surprise for the first 1,000</li>
           </ul>
           <button className="offer-cta" onClick={scrollToJoin}>
-            Claim My Founding Spot →
+            Chat with me →
           </button>
-          <p className="offer-fine">No commitments. Cancel in one tap. Your rate never increases — ever.</p>
+          <div className="offer-trust-grid">
+            <div className="offer-trust-item">
+              <span className="offer-trust-icon">🔒</span>
+              <div className="offer-trust-txt"><strong>Rate Locked Forever</strong>$9.99 never changes.</div>
+            </div>
+            <div className="offer-trust-item">
+              <span className="offer-trust-icon">⚡</span>
+              <div className="offer-trust-txt"><strong>Cancel Anytime</strong>One click. No questions.</div>
+            </div>
+            <div className="offer-trust-item">
+              <span className="offer-trust-icon">🛡️</span>
+              <div className="offer-trust-txt"><strong>100% Private</strong>Never sold or shared.</div>
+            </div>
+            <div className="offer-trust-item">
+              <span className="offer-trust-icon">🎁</span>
+              <div className="offer-trust-txt"><strong>Exclusive Gifts</strong>Founding members only.</div>
+            </div>
+          </div>
           <div className="offer-spots">
             <div className="spots-label">
               <span>Spots claimed</span>
