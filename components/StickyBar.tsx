@@ -47,7 +47,7 @@ export default function StickyBar({ activeCount }: { activeCount: number }) {
   return (
     <div className={`sticky-bar${visible ? ' sticky-bar--visible' : ''}`}>
       <div className="sticky-bar-timer">
-        <span className="sticky-bar-timer-label">Offer ends · {remaining} spots left</span>
+        <span className="sticky-bar-timer-label">Offer ends · 3 spots left</span>
         <span className="sticky-bar-timer-nums">{time.h}:{time.m}:{time.s}</span>
       </div>
       <button className="sticky-bar-cta" onClick={scrollToJoin}>
