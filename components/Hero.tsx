@@ -32,14 +32,22 @@ export default function Hero({ activeCount = 0 }: { activeCount?: number }) {
         <h1 className="hero-name">
           Jessica<br /><em>Blanche</em>
         </h1>
-        <p className="hero-tagline">Private access. Real conversations. $9.99/mo.</p>
+        <p className="hero-tagline">She reads every message. Personally.</p>
         <div className="hero-btns">
           <button className="btn-p" onClick={scrollToJoin} style={{ pointerEvents: 'auto', fontSize: '16px', padding: '18px 52px' }}>
             Chat with me
           </button>
         </div>
+        <div className="hero-dm-notify">
+          <div className="hero-dm-notify-avatar" />
+          <div className="hero-dm-notify-body">
+            <div className="hero-dm-notify-name">Jessica Blanche</div>
+            <div className="hero-dm-notify-msg">Hey, welcome. I actually check these myself 🖤</div>
+          </div>
+          <div className="hero-dm-notify-time">Just now</div>
+        </div>
         {activeCount > 0 && (
-          <p className="hero-anchor-note">↓ {activeCount} founding spots claimed</p>
+          <p className="hero-anchor-note">↓ {activeCount} founding members already chatting with her</p>
         )}
       </div>
     </section>

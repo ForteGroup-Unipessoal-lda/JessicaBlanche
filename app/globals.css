@@ -183,6 +183,10 @@ footer{border-top:1px solid var(--glass-b);padding:44px 48px;display:flex;justif
   .signup-section{padding-bottom:120px}
   .sp-n{font-size:28px}
   .sticky-bar{display:flex}
+  .lifetime-section{padding:90px 22px}
+  .lifetime-cards{grid-template-columns:1fr}
+  .lf-timeline{gap:0}
+  .lf-tl-item{padding:0 16px}
 }
 @media(max-width:560px){
   .photo-band{grid-template-columns:1fr}
@@ -494,6 +498,60 @@ video.dash-media-item{height:auto;max-height:480px}
 .admin-founding-tag{font-size:11px;letter-spacing:.1em;color:var(--gold);text-transform:uppercase}
 .admin-sessions-form-wrap{background:var(--glass);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:28px}
 .admin-sessions-form-wrap .admin-form{max-width:none}
+
+/* ── Hero DM notification card ──────────────────────────────────── */
+.hero-dm-notify{display:flex;align-items:center;gap:12px;background:rgba(6,6,6,.82);border:1px solid rgba(201,169,110,.3);border-radius:16px;padding:12px 18px;margin:24px auto 0;max-width:340px;backdrop-filter:blur(20px);animation:notifySlide .7s 1.2s cubic-bezier(.25,.46,.45,.94) both;box-shadow:0 8px 40px rgba(0,0,0,.5),0 0 0 1px rgba(201,169,110,.1);pointer-events:none}
+.hero-dm-notify-avatar{width:36px;height:36px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,rgba(201,169,110,.8),rgba(201,169,110,.3));border:1px solid rgba(201,169,110,.4)}
+.hero-dm-notify-body{flex:1;min-width:0}
+.hero-dm-notify-name{font-size:12px;font-weight:600;color:var(--white)}
+.hero-dm-notify-msg{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+.hero-dm-notify-time{font-size:10px;color:var(--gold);flex-shrink:0}
+@keyframes notifySlide{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── DM typing indicator & read receipt ─────────────────────────── */
+.dm-typing{display:flex;align-items:center;gap:5px;padding:14px 18px;min-width:60px}
+.typing-dot{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:typingPulse 1.2s ease infinite;flex-shrink:0}
+.typing-dot:nth-child(2){animation-delay:.2s}
+.typing-dot:nth-child(3){animation-delay:.4s}
+@keyframes typingPulse{0%,80%,100%{opacity:.3;transform:scale(.8)}40%{opacity:1;transform:scale(1)}}
+.dm-read-receipt{font-size:10px;color:var(--gold);opacity:.7;padding:0 4px;align-self:flex-end}
+.dm-messages{padding:24px 22px;display:flex;flex-direction:column;gap:18px;max-height:420px;overflow-y:auto}
+
+/* ── LifetimeBenefits section ────────────────────────────────────── */
+.lifetime-section{padding:130px 48px;position:relative;overflow:hidden}
+.lifetime-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 50% 50%,rgba(201,169,110,.04) 0%,transparent 68%);pointer-events:none}
+.lifetime-inner{max-width:900px;margin:0 auto;text-align:center}
+.lifetime-h{font-family:var(--serif);font-size:clamp(36px,4.5vw,64px);font-weight:300;line-height:1.05;margin:18px 0 60px}
+.lifetime-h em{font-style:italic;color:var(--gold)}
+.lifetime-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:640px;margin:0 auto 56px}
+.lf-card{border-radius:24px;padding:40px 32px;text-align:center}
+.lf-card-founding{background:linear-gradient(145deg,rgba(201,169,110,.1),rgba(201,169,110,.03));border:1px solid rgba(201,169,110,.4);position:relative}
+.lf-card-founding::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(201,169,110,.7),transparent)}
+.lf-card-future{background:var(--glass);border:1px solid var(--glass-b);opacity:.55}
+.lf-card-label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block}
+.lf-card-future .lf-card-label{color:var(--dim)}
+.lf-card-price{font-family:var(--serif);font-size:56px;font-weight:300;color:var(--white);line-height:1}
+.lf-card-per{font-size:18px;color:var(--dim)}
+.lf-card-future .lf-card-price{text-decoration:line-through;color:var(--dim)}
+.lf-card-note{font-size:13px;color:var(--dim);margin-top:8px}
+.lf-savings{font-size:18px;color:var(--muted);margin:0 auto 48px;max-width:420px;line-height:1.7}
+.lf-savings strong{color:var(--gold)}
+.lf-timeline{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:56px;overflow-x:auto;padding-bottom:4px}
+.lf-tl-item{text-align:center;padding:0 24px;flex-shrink:0}
+.lf-tl-year{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+.lf-tl-save{font-family:var(--serif);font-size:28px;color:var(--gold);font-weight:300;line-height:1}
+.lf-tl-save-note{font-size:11px;color:var(--dim);margin-top:4px}
+.lf-tl-sep{width:40px;height:1px;background:var(--glass-b);flex-shrink:0}
+
+/* ── Offer enhancements ──────────────────────────────────────────── */
+.offer-future-price{font-size:13px;color:var(--dim);margin-bottom:8px}
+.offer-future-price s{color:rgba(245,240,234,.25)}
+.offer-social-micro{font-size:12px;color:rgba(201,169,110,.6);margin-bottom:28px;letter-spacing:.04em}
+@keyframes spotsShimmer{0%,100%{box-shadow:0 0 8px rgba(201,169,110,.2)}50%{box-shadow:0 0 18px rgba(201,169,110,.5)}}
+.spots-fill{height:100%;background:linear-gradient(90deg,rgba(201,169,110,.4),var(--gold));border-radius:100px;animation:spotsShimmer 2.5s ease infinite}
+
+/* ── SignupForm member count ─────────────────────────────────────── */
+.form-member-count{font-size:13px;color:var(--dim);margin-bottom:16px;letter-spacing:.04em}
 
 /* ── Responsive ───────────────────────────────────────────────── */
 @media(max-width:900px){

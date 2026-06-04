@@ -23,7 +23,9 @@ export default function Offer({ activeCount }: { activeCount: number }) {
         </p>
         <div className="offer-card reveal">
           <span className="offer-badge-top">✦ Founding Member — First 1,000 Only</span>
+          <p className="offer-social-micro">47 people joined this week</p>
           <div>
+            <div className="offer-future-price">Future members pay <s>$24.99+/mo</s></div>
             <div className="offer-price"><sup>$</sup>9<span style={{ fontSize: '52px' }}>.99</span></div>
             <div className="offer-price-note">per month · locked forever · cancel anytime</div>
           </div>
