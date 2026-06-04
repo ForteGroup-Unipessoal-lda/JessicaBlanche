@@ -12,10 +12,10 @@ export default function DirectAccess() {
         <div className="dm-text reveal">
           <span className="section-label">Private Access</span>
           <h2 className="dm-h">
-            She <em>actually</em><br />writes back.
+            She reads<br /><em>every message.</em>
           </h2>
           <p className="dm-sub">
-            Every founding member gets direct access. Real messages. Real responses. Not a team — her.
+            Founding members get a direct line. Not a form. Not a team. Her.
           </p>
           <button className="btn-p" onClick={scrollToJoin}>
             Chat with me →
@@ -41,18 +41,43 @@ export default function DirectAccess() {
                 <div className="dm-bubble dm-bubble-her">
                   Hey, welcome. I actually check these myself 🖤
                 </div>
-                <span className="dm-time">Just now</span>
+                <span className="dm-time">Today, 2:31 PM</span>
               </div>
               <div className="dm-msg dm-msg-you">
                 <div className="dm-bubble dm-bubble-you dm-blur">
-                  Your message here
+                  Your first message here
                 </div>
+                <span className="dm-read-receipt">✓✓ Seen</span>
               </div>
               <div className="dm-msg dm-msg-her">
-                <div className="dm-bubble dm-bubble-her dm-blur">
-                  Her reply — only members can read this
+                <div className="dm-bubble dm-bubble-her">
+                  Tell me something true about yourself.
                 </div>
-                <span className="dm-time">Members only</span>
+                <span className="dm-time">Today, 2:33 PM</span>
+              </div>
+              <div className="dm-msg dm-msg-you">
+                <div className="dm-bubble dm-bubble-you dm-blur">
+                  Your reply — only members see this
+                </div>
+                <span className="dm-read-receipt">✓✓ Seen</span>
+              </div>
+              <div className="dm-msg dm-msg-her">
+                <div className="dm-bubble dm-bubble-her">
+                  Just dropped something for founding members only 🖤
+                </div>
+                <span className="dm-time">Today, 2:47 PM</span>
+              </div>
+              <div className="dm-msg dm-msg-you">
+                <div className="dm-bubble dm-bubble-you dm-blur">
+                  Your message — blurred until you join
+                </div>
+                <span className="dm-read-receipt">✓✓ Seen</span>
+              </div>
+              <div className="dm-msg dm-msg-her">
+                <div className="dm-bubble dm-bubble-her dm-typing">
+                  <span className="typing-dot" /><span className="typing-dot" /><span className="typing-dot" />
+                </div>
+                <span className="dm-time">Typing…</span>
               </div>
             </div>
 

@@ -3,7 +3,9 @@ import CustomCursor from '@/components/CustomCursor'
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
 import Gallery from '@/components/Gallery'
-import UnlockSection from '@/components/UnlockSection'
+import Story from '@/components/Story'
+import DirectAccess from '@/components/DirectAccess'
+import LifetimeBenefits from '@/components/LifetimeBenefits'
 import Offer from '@/components/Offer'
 import SignupForm from '@/components/SignupForm'
 import Footer from '@/components/Footer'
@@ -28,7 +30,9 @@ export default async function Home() {
         <div className="sp-sep" />
         <div className="sp-item"><span className="sp-n">$9.99</span><span className="sp-l">Locked Forever</span></div>
       </div>
-      <UnlockSection />
+      <Story />
+      <DirectAccess />
+      <LifetimeBenefits />
       <Offer activeCount={activeCount} />
       <SignupForm activeCount={activeCount} />
       <Footer />

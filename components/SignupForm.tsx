@@ -14,6 +14,7 @@ export default function SignupForm({ activeCount = 0 }: { activeCount?: number }
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [time, setTime] = useState('')
+  const [personalizedName, setPersonalizedName] = useState('')
 
   useEffect(() => {
     const target = process.env.NEXT_PUBLIC_COUNTDOWN_TARGET
@@ -61,11 +62,22 @@ export default function SignupForm({ activeCount = 0 }: { activeCount?: number }
   return (
     <section className="signup-section" id="join">
       <span className="section-label reveal">Claim Your Spot</span>
-      <h2 className="signup-h reveal">Join her<br /><em>inner circle</em></h2>
+      <h2 className="signup-h reveal">
+        {personalizedName ? <>Join, <em>{personalizedName}</em></> : <>Join her<br /><em>inner circle</em></>}
+      </h2>
       <p className="signup-sub reveal">
         Enter your details. Lock in $9.99 forever. Become one of the first thousand.
       </p>
       <div className="reveal">
+        {activeCount > 0 && (
+          <p className="form-member-count">Join {activeCount.toLocaleString()} members already inside.</p>
+        )}
+        {time && (
+          <div className="form-urgency">
+            <span className="form-urgency-dot" />
+            <span>Founding rate closes in {time} — {remaining.toLocaleString()} spots left</span>
+          </div>
+        )}
         <div className="form-group">
           <input
             type="text"
@@ -73,6 +85,7 @@ export default function SignupForm({ activeCount = 0 }: { activeCount?: number }
             placeholder="What should I call you?"
             value={name}
             onChange={e => setName(e.target.value)}
+            onBlur={() => setPersonalizedName(name.trim())}
             disabled={loading}
           />
         </div>
@@ -87,14 +100,8 @@ export default function SignupForm({ activeCount = 0 }: { activeCount?: number }
             onKeyDown={e => e.key === 'Enter' && handleSubmit()}
           />
         </div>
-        {time && (
-          <div className="form-urgency">
-            <span className="form-urgency-dot" />
-            <span>Founding rate closes in {time} — {remaining.toLocaleString()} spots left</span>
-          </div>
-        )}
         <button className="form-submit" onClick={handleSubmit} disabled={loading}>
-          {loading ? 'Securing your spot…' : 'Chat with me — $9.99 →'}
+          {loading ? 'Securing your spot…' : 'Start chatting with Jessica — $9.99 →'}
         </button>
         {error && <p className="form-error">{error}</p>}
         <p className="form-note">No spam. Your email is never shared. Cancel in one tap, anytime.</p>
